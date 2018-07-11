@@ -1,0 +1,38 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+
+public class IntSum {
+
+  public static int sumAt(String a, String b, int n) {
+    int n1 = Character.digit(a.charAt(n), 10);
+    int n2 = Character.digit(b.charAt(n), 10);
+    return n1 + n2;
+  }
+
+  public static boolean compareNumbers(String int1, String int2) {
+    int n = sumAt(int1, int2, 0);
+
+    for (int i = 1; i < int1.length() ; i++) {
+      if (sumAt(int1, int2, i) != n) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  public static void main(String args[]) throws IOException {
+
+    BufferedReader s = new BufferedReader(new InputStreamReader(System.in));
+
+    // Get two integers.
+    System.out.println("Enter first number: ");
+    String int1 = s.readLine();
+    System.out.println("Enter second number: ");
+    String int2 = s.readLine();
+
+    if (int1.length() == 0) {
+      System.err.println("Inputs cannot be empty");
+      System.exit(1);
+    }
+   
